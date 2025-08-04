@@ -30,6 +30,12 @@ declare global {
         component: React.ReactNode,
         options?: MountOptions,
       ): Cypress.Chainable<MountReturn>
+
+      /**
+       * If the token exists resues it, otherwise it creates a new one
+       * @param sessionName The name of the session to use
+       */
+      maybeGetToken(sessionName: string): Chainable<string>
     }
   }
 }
