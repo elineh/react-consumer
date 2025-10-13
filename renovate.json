@@ -3,7 +3,6 @@
   "automerge": true,
   "prHourlyLimit": 2,
   "updateNotScheduled": false,
-  "timezone": "America/New_York",
   "schedule": ["after 10pm and before 5am on every weekday", "every weekend"],
   "masterIssue": true,
   "labels": ["type: dependencies", "renovate"],
@@ -15,6 +14,11 @@
     },
     {
       "packageNames": ["husky", "jest", "ts-jest", "jest-environment-jsdom"],
+      "enabled": false
+    },
+    {
+      "matchPackageNames": ["cypress"],
+      "matchUpdateTypes": ["major"],
       "enabled": false
     }
   ]
