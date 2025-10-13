@@ -1,6 +1,8 @@
 name: Run contract tests
 
-on: push
+# DISABLED: Pactflow trial expired - workflow kept for reference
+# To re-enable, change 'on: workflow_dispatch' back to 'on: push'
+on: workflow_dispatch
 
 # if this branch is pushed back to back, cancel the older branch's workflow
 concurrency:
