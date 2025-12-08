@@ -31,6 +31,22 @@ declare global {
         options?: MountOptions,
       ): Cypress.Chainable<MountReturn>
 
+      /** Mounts a React node rapped with QueryClientProvider, ErrorBoundary and Suspense */
+      wrappedMount(
+        component: React.ReactNode,
+        options?: MountOptions,
+      ): Cypress.Chainable<MountReturn>
+
+      /** Mounts a React node rapped with router and providers */
+      routeWrappedMount(
+        component: React.ReactNode,
+        options?: {
+          route?: string
+          path?: string
+          cypressOptions?: MountOptions
+        },
+      ): Cypress.Chainable<MountReturn>
+
       /**
        * If the token exists resues it, otherwise it creates a new one
        * @param sessionName The name of the session to use
