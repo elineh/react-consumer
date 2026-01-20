@@ -35,11 +35,15 @@ const routeWrappedMount = (
   },
 ) => {
   const {route = '/', path = '/', cypressOptions = {}} = options || {}
+  // Sets the browser's url to match the route (for any code checking window.location)
   window.history.pushState({}, 'Test Page', route)
 
   const routerWrappedComp = (
+    // MemoryRouter is used to simulate the router
+    // initialEntries is used to set the initial url
     <MemoryRouter initialEntries={[route]}>
       <Routes>
+        {/* Inside the MemoryRouter, this tells React Router: "When the URL matches path, render WrappedComponent." */}
         <Route element={WrappedComponent} path={path} />
       </Routes>
     </MemoryRouter>

@@ -1,34 +1,52 @@
 import styled from 'styled-components'
-// import MoovieInput from './movie-input'
-// import validationErrorDisplay from '../validation-error-display'
-// import {useMovieForm} from '@hooks/use-movie-form'
-// import {SButton} from '@styles/styled-components'
-// import MovieInput from './movie-input'
+import MovieInput from './movie-input'
+import ValidationErrorDisplay from './validation-error-display'
+import {useMovieForm} from '@hooks/use-movie-form'
+import {SButton} from '@styles/styled-components'
 
 export default function MovieForm() {
+  const {
+    movieName,
+    setMovieName,
+    movieYear,
+    setMovieYear,
+    movieRating,
+    setMovieRating,
+    validationError,
+    movieLoading,
+    handleAddMovie,
+  } = useMovieForm()
   return (
     <div data-cy="movie-form-comp">
       <SSubtitle>Add a new movie</SSubtitle>
+      {/* Zod key feature 4: use the validation state in the component */}
+      <ValidationErrorDisplay validationError={validationError} />
 
-      {/* <MovieInput
+      <MovieInput
         type="text"
-        value={}
-        placeholder="Movie"
-        onChange
-      />*/}
-      {/* <MovieInput
-        type="text"
-        value={}
-        placeholder="Movie"
-        onChange
-      />*/}
-      {/* <MovieInput
-        type="text"
-        value={}
-        placeholder="Movie"
-        onChange
-      />*/}
-      {/*<SButton data-cy="add-movie-button">Add movie</SButton>*/}
+        value={movieName}
+        placeholder="Movie name"
+        onChange={e => setMovieName(e.target.value)}
+      />
+      <MovieInput
+        type="number"
+        value={movieYear}
+        placeholder="Movie year"
+        onChange={e => setMovieYear(Number(e.target.value))}
+      />
+      <MovieInput
+        type="number"
+        value={movieRating}
+        placeholder="Movie rating"
+        onChange={e => setMovieRating(Number(e.target.value))}
+      />
+      <SButton
+        data-cy="add-movie-button"
+        onClick={handleAddMovie}
+        disabled={movieLoading}
+      >
+        {movieLoading ? 'Adding...' : 'Add Movie'}
+      </SButton>
     </div>
   )
 }
