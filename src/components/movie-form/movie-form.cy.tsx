@@ -35,14 +35,12 @@ describe('<MovieForm />', () => {
     cy.getByCy('add-movie-button').contains('Adding...')
 
     cy.wait('@addMovie')
-      .its('request')
+      .its('request.body')
       .should(
         spok({
-          body: {
-            name,
-            year: spok.number,
-            rating: spok.number,
-          },
+          name,
+          year: spok.number,
+          rating: spok.number,
         }),
       )
 
