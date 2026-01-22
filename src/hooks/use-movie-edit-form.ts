@@ -15,7 +15,7 @@ export function useMovieEditForm(initialMovie: Movie) {
 
   // Zod Key feature 3: safeParse
   // Zod note: If you have a frontend, you can use the schema + safeParse there
-  // inorder to perform form validation before sending the data to the server
+  // in order to perform form validation before sending the data to the server
   const handleUpdateMovie = () => {
     const result = UpdateMovieSchema.safeParse({
       name: movieName,
