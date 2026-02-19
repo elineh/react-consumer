@@ -20,6 +20,7 @@ export default defineConfig(({mode}) => {
         '@fixtures': path.resolve(__dirname, 'cypress', 'fixtures'),
         '@cypress': path.resolve(__dirname, 'cypress'),
         '@provider-schema': path.resolve(__dirname, 'src', 'provider-schema'),
+        react: path.resolve(__dirname, 'node_modules/react'),
         'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
       },
     },

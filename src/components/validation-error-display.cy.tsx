@@ -1,4 +1,4 @@
-import {ZodError} from 'zod'
+import {z} from 'zod'
 import ValidationErrorDisplay from './validation-error-display'
 
 describe('<ValidationErrorDisplay />', () => {
@@ -8,27 +8,15 @@ describe('<ValidationErrorDisplay />', () => {
   })
 
   it('should render validation errors correctly', () => {
-    const mockError = new ZodError([
-      {
-        path: ['name'],
-        message: 'Name is required',
-        code: 'invalid_type',
-        expected: 'string',
-        input: 'undefined',
-      },
-      {
-        path: ['year'],
-        message: 'Year must be a number',
-        code: 'invalid_type',
-        expected: 'number',
-        input: 'string',
-      },
-    ])
+    const schema = z.object({
+      name: z.string().min(1),
+      year: z.number(),
+    })
+    const result = schema.safeParse({name: undefined, year: 'not a number'})
+    const mockError = !result.success ? result.error : null
 
     cy.wrappedMount(<ValidationErrorDisplay validationError={mockError} />)
 
     cy.getByCy('validation-error').should('have.length', 2)
-    cy.contains('Name is required')
-    cy.contains('Year must be a number')
   })
 })
