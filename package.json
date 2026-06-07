@@ -76,7 +76,7 @@
     "lint-staged": "17.0.5",
     "lodash": "^4.17.21",
     "nock": "^14.0.7",
-    "npm-run-all2": "8.0.4",
+    "npm-run-all2": "9.0.1",
     "prettier": "3.8.1",
     "start-server-and-test": "3.0.2",
     "ts-jest": "29.2.5",
