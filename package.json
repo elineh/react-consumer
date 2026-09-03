@@ -39,7 +39,7 @@
     "@cypress/grep": "5.1.0",
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
-    "@faker-js/faker": "10.4.0",
+    "@faker-js/faker": "10.5.0",
     "@pact-foundation/pact": "^17.0.0",
     "@pact-foundation/pact-cli": "^18.0.0",
     "@testing-library/cypress": "10.1.0",
